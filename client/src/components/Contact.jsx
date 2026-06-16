@@ -7,7 +7,7 @@ import {
 import { FiLoader, FiCheckCircle, FiXCircle } from "react-icons/fi";
 
 // ── Change this to your deployed backend URL in production ──
-const API_URL = import.meta.env.VITE_API_URL || "http://localhost:5000";
+const API_URL = import.meta.env.VITE_API_URL;
 
 // ── Input component ─────────────────────────────────────────
 const Field = ({ label, error, children }) => (
@@ -87,7 +87,7 @@ const Contact = () => {
     setServerError("");
 
     try {
-      const res = await fetch(`${API_URL}/api/contact`, {
+      const res = await fetch(`/api/contact`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(form),
